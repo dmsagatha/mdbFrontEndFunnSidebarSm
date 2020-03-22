@@ -13,138 +13,96 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+      .map-container {
+        overflow:hidden;
+        padding-bottom:56.25%;
+        position:relative;
+        height:0;
+      }
+      .map-container iframe {
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+      }
+    </style>
   </head>
   <body class="grey lighten-3">
     <div class="wrapper leftCanvas">
       <div class="overlay"></div>
-      <div class="offCanvas bg-dark">
+
+      <!-- Sidebar -->
+      <div class="offCanvas bg-white" id="sidebarMenu">
         <a class="logo-wrapper waves-effect">
           <img src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid" alt="">
         </a>
+        
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item active waves-effect">
+            <i class="fas fa-chart-pie text-info mr-3"></i>Dashboard
+          </a>
+          <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <i class="fas fa-user text-warning mr-3"></i>Perfil
+          </a>
 
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="#" class="nav-link p-3 text-white">
-              <i class="fas fa-chart-pie text-info mr-3"></i>Dashboard
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link p-3 text-white">
-              <i class="fas fa-user text-warning  mr-3"></i>Perfil
-            </a>
-          </li>
-          
-          <!-- Dropdown bs4Sidebar -->
-          <li class="nav-item dropdown open">
+          <div class="sidebar-dropdown">
             <a 
-              href="#subMenu1"
-              class="nav-link dropdown-toggle p-3 text-white"
+              href="#imports" 
+              class="list-group-item list-group-item-action waves-effect collapsed" 
               data-toggle="collapse" 
-              aria-haspopup="true" 
-              aria-expanded="false">
-              <i class="fas fa-file-import mr-3 blue-grey-text"></i>Menú Desplegable 1
+              aria-expanded="false" 
+              data-target="#imports">
+              <i class="fas fa-file-import blue-grey-text mr-3"></i>Importaciones
             </a>
-            </a>
-            <ul class="collapse" id="subMenu1">
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 1.1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 1.2</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 1.3</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
+            <div class="collapse" id="imports" data-parent="#sidebarMenu">
+              <ul class="list-group pl-3">
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Importación 1</a>
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Importación 2</a>
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Importación 3</a>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sidebar-dropdown">
             <a 
-              href="#subMenu2"
-              class="nav-link dropdown-toggle p-3 text-white"
-              data-toggle="collapse" 
-              aria-haspopup="true" 
-              aria-expanded="false">
-              <i class="fas fa-table text-danger mr-3"></i>Menú Desplegable 2
+              href="#reports" 
+              class="list-group-item list-group-item-action waves-effect collapsed"
+              data-toggle="collapse"
+              aria-expanded="false"
+              data-target="#reports">
+              <i class="fas fa-list-ul text-danger mr-3"></i>Reportes
             </a>
-            <ul class="collapse" id="subMenu2">
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 2.1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 2.2</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 2.3</a>
-              </li>
-            </ul>
-          </li>
+            <div class="collapse" id="reports" data-parent="#sidebarMenu">
+              <ul class="list-group pl-3">
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Report 1</a>
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Report 2</a>
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Report 3</a>
+                <a class="list-group-item list-group-item-action waves-effect" href="#">Report 4</a>
+              </ul>
+            </div>
+          </div>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link p-3 text-white">
-              <i class="fas fa-list-ul mr-3 blue-grey-text"></i>Reportes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link p-3 text-white">
-              <i class="fas fa-bell cyan-text mr-3"></i>Mapas
-            </a>
-          </li>
+          <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <i class="fas fa-table amber-text mr-3"></i>Tablas
+          </a>
 
-          <li class="nav-item dropdown">
-            <a 
-              href="#subMenu3"
-              class="nav-link dropdown-toggle p-3 text-white"
-              data-toggle="collapse" 
-              aria-haspopup="true" 
-              aria-expanded="false">
-              <i class="fas fa-bolt amber-text pr-3" aria-hidden="true"></i>Menú Desplegable 3
-            </a>
-            <ul class="collapse" id="subMenu3">
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 3.1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 3.2</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 3.3</a>
-              </li>
-            </ul>
-          </li>
+          <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <i class="fas fa-map red-text mr-3"></i>Mapas
+          </a>
+          <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <i class="fas fa-money-bill-alt indigo-text mr-3"></i>Pedidos
+          </a>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link p-3 text-white">
-              <i class="fas fa-video red-text mr-3"></i> Video
-            </a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a 
-              href="#subMenu4"
-              class="nav-link dropdown-toggle p-3 text-white"
-              data-toggle="collapse" 
-              aria-haspopup="true" 
-              aria-expanded="false">
-              <i class="fas fa-heart indigo-text pr-3" aria-hidden="true"></i>Menú Desplegable 4
-            </a>
-            <ul class="collapse" id="subMenu4">
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 4.1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 4.2</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">SubMenú 4.3</a>
-              </li>
-            </ul>
-          </li>
-
-          <a href="https://www.youtube.com/watch?v=VPLWCTkGnd0" target="_blank" class="nav-link p-3 text-white">
+          <a href="https://www.youtube.com/watch?v=VPLWCTkGnd0" target="_blank" class="list-group-item list-group-item-action waves-effect">
             <i class="fas fa-video text-warning mr-3"></i> FrontEndFunn - Sidebar
           </a>
-        </ul>
-      </div>
+          <a href="https://www.templatemonster.com/blog/build-navigation-menu-css-jquery/"  target="_blank" class="list-group-item list-group-item-action waves-effect">
+            <i class="fas fa-code text-info mr-3"></i> Slide-Out - Código
+          </a>
+        </div>
+      </div><!-- Sidebar -->
 
       <div class="content">
         <!-- Navbar -->
@@ -1440,6 +1398,7 @@
           offCanvasHeight();
         });
 
+        // Capa sobrepuesta
         $('.offCanvasToggler, .overlay').click(function (e) { 
           e.preventDefault();
           $('.wrapper').toggleClass('active');
