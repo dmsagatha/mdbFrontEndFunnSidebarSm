@@ -7,7 +7,7 @@
   /* Menú lateral fijo */
   /* Contenido - Menú Navbar */
   /* Trasladar el Menú lateral a la izquierda */
-  /* Activar los estados con jQuery */
+  /* Activar los estados con jQuery - Capa sobrepuesta */
 }
 
 .wrapper .overlay {
@@ -33,6 +33,21 @@
   -webkit-transition: all ease 0.25s;
   transition: all ease 0.25s;
   overflow-y: auto;
+}
+
+.wrapper .offCanvas .list-group .sidebar-dropdown > a::after {
+  position: absolute;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f078";
+  /* fa-chevron-down */
+  font-size: 1.3rem;
+  right: 1rem;
+}
+
+.wrapper .offCanvas .list-group .sidebar-dropdown > a[aria-expanded='true']::after {
+  content: "\f077";
+  /* fa-chevron-up */
 }
 
 .wrapper .content .mainNavbar,
